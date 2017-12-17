@@ -26,13 +26,22 @@ E:\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debu
 E:\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.Form1.resources
 E:\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.Properties.Resources.resources
 E:\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\bin\Debug\Lab2.exe.config
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\bin\Debug\Lab2.exe
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\bin\Debug\Lab2.pdb
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.Form1.resources
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.Properties.Resources.resources
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.exe
-E:\Флеха\ПРОГРАММИРОВАНИЕ 3 СЕМЕСТР\Лабы\Lab2\Lab2\obj\Debug\Lab2.pdb
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.exe
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.pdb
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\bin\Debug\Lab2.exe
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\bin\Debug\Lab2.pdb
+C:\Users\user\Desktop\Lab3\Lab3\Lab2\obj\Debug\Lab2.FormDepocs.resources
+C:\Users\apels\Desktop\Lab3\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\apels\Desktop\Lab3\Lab2\bin\Debug\Lab2.exe
+C:\Users\apels\Desktop\Lab3\Lab2\bin\Debug\Lab2.pdb
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.FormDepocs.resources
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.exe
+C:\Users\apels\Desktop\Lab3\Lab2\obj\Debug\Lab2.pdb
