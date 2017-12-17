@@ -13,6 +13,9 @@ namespace Lab2
     public partial class FormDepocs : Form
     {
         Depo depo;
+
+        FormSelectLoco form;
+
         public FormDepocs()
         {
             InitializeComponent();
@@ -88,7 +91,7 @@ namespace Lab2
                     }
                     else
                     {//иначесообщаемобэтом
-                        MessageBox.Show("Извините, на этом месте нет машины");
+                        MessageBox.Show("Извинте, на этом месте нет машины");
                     }
 
                 }
@@ -113,6 +116,32 @@ namespace Lab2
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
             Draw();
 
+        }
+
+        private void buttonSetLoco_Click(object sender, EventArgs e)
+        {
+            form = new FormSelectLoco();
+            form.AddLoco(AddLoco);
+            form.Show();
+
+            
+        }
+
+        private void AddLoco(ITransport loco)
+        {
+            if (loco != null)
+            {
+                int place = depo.PutLocoInDepo(loco);
+                if (place > -1)
+                {
+                    Draw();
+                    MessageBox.Show("Ваше место: " + place);
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось поставить!");
+                }
+            }
         }
     }
 }

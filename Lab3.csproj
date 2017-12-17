@@ -55,6 +55,12 @@
     <Compile Include="FormDepocs.Designer.cs">
       <DependentUpon>FormDepocs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectLoco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectLoco.Designer.cs">
+      <DependentUpon>FormSelectLoco.cs</DependentUpon>
+    </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="Locomotive.cs" />
     <Compile Include="Program.cs" />
@@ -62,6 +68,9 @@
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormDepocs.resx">
       <DependentUpon>FormDepocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectLoco.resx">
+      <DependentUpon>FormSelectLoco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
