@@ -16,16 +16,25 @@ namespace Lab2
         public FormDepocs()
         {
             InitializeComponent();
-            depo = new Depo();
+            depo = new Depo(5);
+            for (int i = 1; i < 6; i++)
+            {
+                listBoxLevels.Items.Add("Уровень " + i);
+            }
+            listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+   
             Draw();
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            depo.Draw(gr, pictureBoxParking.Width, pictureBoxParking.Height);
-            pictureBoxParking.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                depo.Draw(gr, pictureBoxParking.Width, pictureBoxParking.Height);
+                pictureBoxParking.Image = bmp;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,19 +71,49 @@ namespace Lab2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text != "")
             {
-                var locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
+                if (listBoxLevels.SelectedIndex > -1)
+                {//Прежде чем забрать машину, надо выбрать с какого уровня будем забирать
+                    string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
+                    if (maskedTextBox1.Text != "")
+                    {
+                        var locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
 
-                Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                locomotive.setPosition(20, 50);
-                locomotive.drawLocomotive(gr);
-                pictureBoxTakeCar.Image = bmp;
-                Draw();
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        locomotive.setPosition(20, 50);
+                        locomotive.drawLocomotive(gr);
+                        pictureBoxTakeCar.Image = bmp;
+                        Draw();
+                    }
+                    else
+                    {//иначесообщаемобэтом
+                        MessageBox.Show("Извините, на этом месте нет машины");
+                    }
+
+                }
             }
         }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void buttonDown_Click(object sender, EventArgs e)
+        {
+            depo.LevelDown();
+            listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            Draw();
+
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            depo.LevelUp();
+            listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            Draw();
+
+        }
     }
 }
 
