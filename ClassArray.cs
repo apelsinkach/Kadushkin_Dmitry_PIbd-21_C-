@@ -19,10 +19,6 @@ namespace Lab2
             defaultValue = defVal;
             places = new Dictionary<int, T>();
             maxCount = sizes;
-            //for(int i = 0; i < places.Length; i++)
-            //{
-            //    places[i] = defaultValue;
-            //}
         }
 
 
@@ -42,18 +38,6 @@ namespace Lab2
             }
             p.places.Add(p.places.Count, locomotive);
             return p.places.Count - 1;
-
-
-
-            //for (int i = 0; i < p.places.Length; i++)
-            //{
-            //    if (p.CheckFreePlace(i))
-            //    {
-            //        p.places[i] = locomotive;
-            //        return i;
-            //    }
-            //}
-            //return -1;
         }
 
         public static T operator -(ClassArray<T> p, int index)
@@ -65,35 +49,12 @@ namespace Lab2
                 return locomotive;
             }
             return p.defaultValue;
-
-
-
-            //if (!p.CheckFreePlace(index))
-            //{
-            //    T locomotive = p.places[index];
-            //    p.places[index] = p.defaultValue;
-            //    return locomotive;
-            //}
-            //return p.defaultValue;
         }
 
         private bool CheckFreePlace(int index)
         {
 
             return !places.ContainsKey(index);
-            //    if (index < 0 || index > places.Length)
-            //    {
-            //        return false;
-            //    }
-            //    if (places[index] == null)
-            //    {
-            //        return true;
-            //    }
-            //    if (places[index].Equals(defaultValue))
-            //    {
-            //        return true;
-            //    }
-            //    return false;
         }
 
         public T this[int ind]
