@@ -13,6 +13,21 @@ namespace Lab2
         private bool coal;
         private Color dopColor;
 
+        public CartLocomotive(string info):base(info)
+        {
+            string[] strs = info.Split(';');
+            if(strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxCountPassengers = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+                pipe = Convert.ToBoolean(strs[4]);
+                coal = Convert.ToBoolean(strs[5]);
+                dopColor = Color.FromName(strs[6]);
+            }
+        }
+
         public CartLocomotive(int maxSpeed, int maxCountPassengers, double weight, Color color, bool pipe, bool coal, Color dopColor) : base(maxSpeed, maxCountPassengers, weight, color)
         {
             this.pipe = pipe;
@@ -46,6 +61,9 @@ namespace Lab2
             dopColor = color;
         }
 
-
+        public override string getInfo()
+        {
+            return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" + pipe + ";" + coal + ";" + dopColor.Name;
+        }
     }
 }

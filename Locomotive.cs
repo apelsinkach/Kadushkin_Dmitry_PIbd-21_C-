@@ -71,6 +71,23 @@ namespace Lab2
             }
         }
 
+        public Locomotive(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 4)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxCountPassengers = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+            }
+            this.countPassengers = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(400, 500);
+            startPosY = rand.Next(100, 200);       
+        }
+
+
         public Locomotive(int maxSpeed, int maxCountPassengers, double weight, Color color)
         {
             this.MaxSpeed = maxSpeed;
@@ -83,6 +100,10 @@ namespace Lab2
             startPosY = rand.Next(100, 200);
         }
 
+        public override string getInfo()
+        {
+           return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name;
+        }
 
         public override void drawLocomotive(Graphics g)
         {
@@ -91,7 +112,7 @@ namespace Lab2
 
         public override void moveLocomotive(Graphics g)
         {
-            startPosX -= (MaxSpeed *50/(float)Weight)/(countPassengers==0?1:countPassengers);
+            startPosX -= (MaxSpeed * 50 / (float)Weight) / (countPassengers == 0 ? 1 : countPassengers);
             drawLocomotive(g);
         }
 
@@ -103,12 +124,12 @@ namespace Lab2
             Brush brushB = new SolidBrush(Color.Black);
             Brush brushRB = new SolidBrush(Color.DeepPink);
 
-            g.DrawEllipse(penR, startPosX+10, startPosY + 30, 20, 20);
-            g.DrawEllipse(penR, startPosX + 25, startPosY+ 30, 20, 20);
+            g.DrawEllipse(penR, startPosX + 10, startPosY + 30, 20, 20);
+            g.DrawEllipse(penR, startPosX + 25, startPosY + 30, 20, 20);
             g.DrawEllipse(penR, startPosX + 60, startPosY + 30, 20, 20);
             g.DrawEllipse(penR, startPosX + 75, startPosY + 30, 20, 20);
 
-           
+
 
             g.FillEllipse(brushRB, startPosX + 10, startPosY + 30, 20, 20);
             g.FillEllipse(brushRB, startPosX + 25, startPosY + 30, 20, 20);
@@ -120,15 +141,18 @@ namespace Lab2
 
             Brush LokoBrush = new SolidBrush(ColorBody);
             g.FillRectangle(LokoBrush, startPosX, startPosY, 100, 30);
-            g.DrawRectangle(penB, startPosX-5, startPosY + 20, 10, 10);
+            g.DrawRectangle(penB, startPosX - 5, startPosY + 20, 10, 10);
 
             g.FillRectangle(brushR, startPosX - 5, startPosY + 20, 10, 10);
 
-            g.DrawRectangle(penB, startPosX + 100, startPosY +20, 5, 5);
+            g.DrawRectangle(penB, startPosX + 100, startPosY + 20, 5, 5);
             g.DrawRectangle(penB, startPosX + 80, startPosY + 5, 15, 15);
-            g.DrawLine(penB, startPosX+15, startPosY + 38, startPosX + 40, startPosY + 40);
+            g.DrawLine(penB, startPosX + 15, startPosY + 38, startPosX + 40, startPosY + 40);
             g.DrawLine(penB, startPosX + 65, startPosY + 38, startPosX + 90, startPosY + 40);
         }
+
+       
+
 
     }
 }
