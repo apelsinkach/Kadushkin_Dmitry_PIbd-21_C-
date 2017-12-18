@@ -12,7 +12,6 @@ namespace Lab2
     {
         List<ClassArray<ITransport>> parkingStages;
 
-
         int countPlaces = 5;
 
         int placeSizeWidth = 300;
