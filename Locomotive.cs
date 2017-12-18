@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class Locomotive : Vehicle
+    public class Locomotive : Vehicle,IComparable<Locomotive>,IEquatable<Locomotive>
     {
 
         public override int MaxSpeed
@@ -151,8 +151,76 @@ namespace Lab2
             g.DrawLine(penB, startPosX + 65, startPosY + 38, startPosX + 90, startPosY + 40);
         }
 
-       
+        public int CompareTo(Locomotive other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            if(MaxSpeed != other.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(other.MaxSpeed);
+            }
+            if (MaxCountPassengers != other.MaxCountPassengers)
+            {
+                return MaxCountPassengers.CompareTo(other.MaxCountPassengers);
+            }
+            if(Weight!= other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if(ColorBody!= other.ColorBody)
+            {
+                ColorBody.Name.CompareTo(other.ColorBody.Name);
+            }
+            return 0;
+        }
 
+        public bool Equals(Locomotive other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (MaxCountPassengers != other.MaxCountPassengers)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (ColorBody != other.ColorBody)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Locomotive locoObj = obj as Locomotive;
+            if(locoObj == null)
+            {
+                return false;
+            }else
+            {
+                return Equals(locoObj);
+            }
+         
+        }
+
+        public override int GetHashCode()
+        {
+            return MaxSpeed.GetHashCode();
+        }
 
     }
 }

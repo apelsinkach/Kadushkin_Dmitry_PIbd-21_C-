@@ -19,7 +19,7 @@ namespace Lab2
         FormSelectLoco form;
 
         private Logger log;
-        public Logger errors;
+        private Logger errors;
 
         public FormDepocs()
         {
@@ -104,7 +104,7 @@ namespace Lab2
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK);
+                            MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             errors.Error("Общая ошибка!");
                         }
                     }
@@ -162,13 +162,13 @@ namespace Lab2
                 }
                 catch(DepoOverflowException ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка переполнения", MessageBoxButtons.OK);
-                    errors.Error("Ошибка переполнения!");
+                    errors.Error("Ошибка переполнения");
+                    MessageBox.Show(ex.Message, "Ошибка переполнения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch(Exception e)
                 {
-                    errors.Error("Общая ошибка");
-                    MessageBox.Show(e.Message, "Общая ошибка", MessageBoxButtons.OK);
+                    errors.Info("Общая ошибка");
+                    MessageBox.Show(e.Message, "Общая ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }               
              
             }
@@ -218,6 +218,11 @@ namespace Lab2
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            depo.Sort();
         }
     }
 }
