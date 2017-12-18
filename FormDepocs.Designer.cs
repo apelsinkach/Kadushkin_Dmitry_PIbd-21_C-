@@ -54,9 +54,9 @@
             // pictureBoxParking
             // 
             this.pictureBoxParking.Location = new System.Drawing.Point(16, 46);
-            this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(608, 632);
+            this.pictureBoxParking.Size = new System.Drawing.Size(608, 618);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
@@ -75,7 +75,7 @@
             this.listBoxLevels.FormattingEnabled = true;
             this.listBoxLevels.ItemHeight = 16;
             this.listBoxLevels.Location = new System.Drawing.Point(709, 63);
-            this.listBoxLevels.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxLevels.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(159, 116);
             this.listBoxLevels.TabIndex = 5;
@@ -84,7 +84,7 @@
             // buttonDown
             // 
             this.buttonDown.Location = new System.Drawing.Point(668, 187);
-            this.buttonDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(100, 28);
             this.buttonDown.TabIndex = 6;
@@ -95,7 +95,7 @@
             // buttonUp
             // 
             this.buttonUp.Location = new System.Drawing.Point(792, 187);
-            this.buttonUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(100, 28);
             this.buttonUp.TabIndex = 7;
@@ -106,7 +106,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(100, 70);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 1;
@@ -117,7 +117,7 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(181, 38);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBox1.Mask = "0";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(55, 22);
@@ -135,23 +135,23 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBoxTakeCar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(632, 361);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(632, 274);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(295, 290);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(295, 129);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Пустить поезд";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // buttonSetLoco
             // 
-            this.buttonSetLoco.Location = new System.Drawing.Point(668, 249);
-            this.buttonSetLoco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSetLoco.Location = new System.Drawing.Point(668, 223);
+            this.buttonSetLoco.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSetLoco.Name = "buttonSetLoco";
             this.buttonSetLoco.Size = new System.Drawing.Size(224, 43);
             this.buttonSetLoco.TabIndex = 8;
@@ -201,17 +201,18 @@
             // 
             // pictureBoxTakeCar
             // 
-            this.pictureBoxTakeCar.Location = new System.Drawing.Point(21, 118);
+            this.pictureBoxTakeCar.Location = new System.Drawing.Point(632, 411);
             this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
-            this.pictureBoxTakeCar.Size = new System.Drawing.Size(257, 148);
-            this.pictureBoxTakeCar.TabIndex = 4;
+            this.pictureBoxTakeCar.Size = new System.Drawing.Size(287, 189);
+            this.pictureBoxTakeCar.TabIndex = 10;
             this.pictureBoxTakeCar.TabStop = false;
             // 
             // FormDepocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 691);
+            this.ClientSize = new System.Drawing.Size(931, 677);
+            this.Controls.Add(this.pictureBoxTakeCar);
             this.Controls.Add(this.buttonSetLoco);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonDown);
@@ -221,7 +222,7 @@
             this.Controls.Add(this.pictureBoxParking);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDepocs";
             this.Text = "FormDepocs";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();

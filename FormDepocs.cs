@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Lab3;
+using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +18,14 @@ namespace Lab2
 
         FormSelectLoco form;
 
+        private Logger log;
+        public Logger errors;
+
         public FormDepocs()
         {
             InitializeComponent();
+            log = LogManager.GetCurrentClassLogger();
+            errors = LogManager.GetCurrentClassLogger();
             depo = new Depo(5);
             for (int i = 1; i < 6; i++)
             {
@@ -80,14 +87,26 @@ namespace Lab2
                     string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
                     if (maskedTextBox1.Text != "")
                     {
-                        var locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
+                        try
+                        {
+                            var locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
 
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                        Graphics gr = Graphics.FromImage(bmp);
-                        locomotive.setPosition(20, 50);
-                        locomotive.drawLocomotive(gr);
-                        pictureBoxTakeCar.Image = bmp;
-                        Draw();
+                            Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                            Graphics gr = Graphics.FromImage(bmp);
+                            locomotive.setPosition(20, 50);
+                            locomotive.drawLocomotive(gr);
+                            pictureBoxTakeCar.Image = bmp;
+                            Draw();
+                        }catch(DepoIndexOutOfRangeException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Неверный номер", MessageBoxButtons.OK);
+                            errors.Error("Нет такого номера!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK);
+                            errors.Error("Общая ошибка!");
+                        }
                     }
                     else
                     {//иначесообщаемобэтом
@@ -106,6 +125,7 @@ namespace Lab2
         {
             depo.LevelDown();
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            log.Info("Переход на уровень ниже. Текущий уровень: " + depo.getCurrentLevel);
             Draw();
 
         }
@@ -114,6 +134,7 @@ namespace Lab2
         {
             depo.LevelUp();
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            log.Info("Переход на уровень выше. Текущий уровень: " + depo.getCurrentLevel);
             Draw();
 
         }
@@ -122,6 +143,7 @@ namespace Lab2
         {
             form = new FormSelectLoco();
             form.AddLoco(AddLoco);
+            log.Info("Выбран локомотив");
             form.Show();
 
             
@@ -131,16 +153,24 @@ namespace Lab2
         {
             if (loco != null)
             {
-                int place = depo.PutLocoInDepo(loco);
-                if (place > -1)
+                try
                 {
+                    int place = depo.PutLocoInDepo(loco);
                     Draw();
                     MessageBox.Show("Ваше место: " + place);
+                    log.Info("Добавлен локомотив с местом " + depo.getCurrentLevel);
                 }
-                else
+                catch(DepoOverflowException ex)
                 {
-                    MessageBox.Show("Не удалось поставить!");
+                    MessageBox.Show(ex.Message, "Ошибка переполнения", MessageBoxButtons.OK);
+                    errors.Error("Ошибка переполнения!");
                 }
+                catch(Exception e)
+                {
+                    errors.Error("Общая ошибка");
+                    MessageBox.Show(e.Message, "Общая ошибка", MessageBoxButtons.OK);
+                }               
+             
             }
         }
 
@@ -152,11 +182,13 @@ namespace Lab2
                 {
                     MessageBox.Show("Сохранение прошло успешно", "",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    log.Info("Успешное сохранение!");
                 }
                 else
                 {
                     MessageBox.Show("Несохранилось", "",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    log.Info("Ошибка в сохранении");
                 }
             }
 
@@ -170,14 +202,21 @@ namespace Lab2
                 {
                     MessageBox.Show("Загрузили", "",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    log.Info("Успешная загрузка!");
                 }
                 else
                 {
                     MessageBox.Show("Незагрузили", "",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    log.Info("Ошибка в загрузке!");
                 }
                 Draw();
             }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

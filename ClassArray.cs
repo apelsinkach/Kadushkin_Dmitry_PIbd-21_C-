@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Lab2
         private Dictionary<int, T> places;
 
         private int maxCount;
+       
         private T defaultValue;
 
         public ClassArray(int sizes, T defVal)
@@ -18,7 +20,7 @@ namespace Lab2
             defaultValue = defVal;
             places = new Dictionary<int, T>();
             maxCount = sizes;
-
+           
         }
 
 
@@ -26,7 +28,7 @@ namespace Lab2
         {
             if (p.places.Count == p.maxCount)
             {
-                return -1;
+                throw new DepoOverflowException();
             }
             for (int i = 0; i < p.places.Count; i++)
             {
@@ -38,7 +40,6 @@ namespace Lab2
             }
             p.places.Add(p.places.Count, locomotive);
             return p.places.Count - 1;
-
         }
 
         public static T operator -(ClassArray<T> p, int index)
@@ -49,15 +50,13 @@ namespace Lab2
                 p.places.Remove(index);
                 return locomotive;
             }
-            return p.defaultValue;
-
+            throw new DepoIndexOutOfRangeException();
         }
 
         private bool CheckFreePlace(int index)
         {
 
             return !places.ContainsKey(index);
-           
         }
 
         public T this[int ind]
