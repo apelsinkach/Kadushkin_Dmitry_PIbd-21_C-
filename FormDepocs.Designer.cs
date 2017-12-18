@@ -45,6 +45,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -56,7 +57,7 @@
             this.pictureBoxParking.Location = new System.Drawing.Point(16, 46);
             this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(608, 618);
+            this.pictureBoxParking.Size = new System.Drawing.Size(608, 639);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
@@ -105,7 +106,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(100, 70);
+            this.button3.Location = new System.Drawing.Point(160, 81);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
@@ -116,7 +117,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(181, 38);
+            this.maskedTextBox1.Location = new System.Drawing.Point(205, 38);
             this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBox1.Mask = "0";
             this.maskedTextBox1.Name = "maskedTextBox1";
@@ -126,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 38);
+            this.label1.Location = new System.Drawing.Point(147, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
@@ -135,6 +136,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.button3);
@@ -207,11 +209,21 @@
             this.pictureBoxTakeCar.TabIndex = 10;
             this.pictureBoxTakeCar.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 68);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Сортировка";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormDepocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 677);
+            this.ClientSize = new System.Drawing.Size(931, 698);
             this.Controls.Add(this.pictureBoxTakeCar);
             this.Controls.Add(this.buttonSetLoco);
             this.Controls.Add(this.buttonUp);
@@ -255,5 +267,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="CartLocomotive.cs" />
     <Compile Include="ClassArray.cs" />
     <Compile Include="Depo.cs" />
+    <Compile Include="DepoAlreadyHaveException.cs" />
     <Compile Include="DepoIndexOutOfRangeException.cs" />
     <Compile Include="DepoOverflowException.cs" />
     <Compile Include="FormDepocs.cs">
@@ -99,9 +100,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

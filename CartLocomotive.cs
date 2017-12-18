@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class CartLocomotive : Locomotive
+    public class CartLocomotive : Locomotive,IComparable<CartLocomotive>,IEquatable<Locomotive>
     {
         private bool pipe;
         private bool coal;
@@ -64,6 +64,69 @@ namespace Lab2
         public override string getInfo()
         {
             return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" + pipe + ";" + coal + ";" + dopColor.Name;
+        }
+
+        public int CompareTo(CartLocomotive other)
+        {
+            var res = (this is Locomotive).CompareTo(other is Locomotive);
+            if (res != 0)
+            {
+                return res;
+            }
+            if(pipe != other.pipe)
+            {
+                return pipe.CompareTo(other.pipe);
+            }
+            if(coal!= other.coal)
+            {
+                return coal.CompareTo(other.coal);
+            }
+            if(dopColor!= other.dopColor)
+            {
+                dopColor.Name.CompareTo(other.dopColor.Name);
+            }
+            return 0;
+        }
+
+        public bool Equals(CartLocomotive other)
+        {
+                var res = (this is Locomotive).Equals(other is Locomotive);
+                if (!res)
+                {
+                    return res;
+                }
+                if (pipe != other.pipe)
+                {
+                return false;
+                }
+                if (coal != other.coal)
+                {
+                return false;
+                }
+                if (dopColor != other.dopColor)
+                {
+                return false;
+                }
+                return true;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            CartLocomotive cartObj = obj as CartLocomotive;
+            if (cartObj == null)
+            {
+                return false;
+            }else
+            {
+                return Equals(cartObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
