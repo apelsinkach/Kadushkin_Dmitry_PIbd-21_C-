@@ -55,5 +55,11 @@ namespace Lab2
         {
             ColorBody = color;
         }
+
+        public abstract string getInfo();
+       
+       
+
+        
     }
 }
