@@ -50,5 +50,10 @@ namespace Lab2
             startPosY = y;
 
         }
+
+        public void setMainColor(Color color)
+        {
+            ColorBody = color;
+        }
     }
 }

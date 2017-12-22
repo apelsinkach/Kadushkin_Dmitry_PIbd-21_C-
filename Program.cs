@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Lab2
 {
+    public delegate void myDel(Lab2.ITransport loco);
     static class Program
     {
         /// <summary>
