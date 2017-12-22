@@ -82,7 +82,6 @@ namespace Lab2
 
         private void q_Click(object sender, EventArgs e)
         {
-            //labelLoco.DoDragDrop(labelLoco.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelLoco_DragDrop(object sender, DragEventArgs e)
